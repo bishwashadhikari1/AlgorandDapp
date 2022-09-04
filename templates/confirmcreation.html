@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Wallet verification
+{% endblock %}
+
+
+{% block content %}
+
+<div class="container mt-5 p5 ">
+<div class="row">
+    <div class="col-lg-12">
+        <p class="text-justify">Shuffled Seed code: {% for word in shuffle_seed %} {{word}} {% endfor %}</p>
+        <form method="post" class="form">
+            {% csrf_token %}
+            <div class="col-md-12">
+            <input type="text" class="form-control" placeholder="Enter your seedcode" name="enteredseed">
+            </div>
+            <div class="col-md-12">
+                <p class="text-danger">
+                    {% if error_found == 1 %}
+                    Seed Code Incorrect
+
+                    {% endif %}
+                </p>
+            </div>
+            <div class="col-md-12 text-center">
+                <button class="btn btn-success ma" value="submit">Submit</button>
+             </div>
+
+        </form>
+    </div>
+</div>
+</div>
+
+{% endblock %}

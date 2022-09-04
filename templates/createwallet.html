@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Create Wallet
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<div class="col-lg-12">
+{% for word in seedcode %}
+<p>{{ word }}</p>
+{% endfor %}
+<p>Make sure you've written down the words correctly and in a safe place.</p>
+<a href="{% url 'confirm_creation' %}">
+<button class="btn btn-success">Continue</button>
+</a>
+
+</div>
+</div>
+
+
+{% endblock  %}
